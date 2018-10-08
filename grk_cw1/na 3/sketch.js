@@ -1,5 +1,6 @@
 function setup() {
     noLoop();
+    createCanvas(800, 600);
 }
 
 function draw() {
