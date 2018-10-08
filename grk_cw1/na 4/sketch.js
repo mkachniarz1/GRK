@@ -1,6 +1,6 @@
 function setup() {
     noLoop();
-    createCanvas(150, 150);
+    createCanvas(800, 600);
 }
 
 function draw() {
@@ -12,12 +12,12 @@ function draw() {
             var midX = abs(x - width / 2);
             var midY = abs(y - height / 2);
             var d = sqrt(pow(midX, 2) + pow(midY, 2));
-            var maxD = sqrt(pow(height/2, 2)+ pow(width/2, 2));
-            console.log(d);
-            g = (d/maxD)*256;
-            r = 256 - (d/maxD)*256;
-            
+            var maxD = sqrt(pow(height / 2, 2) + pow(width / 2, 2));
+
+            g = (d / maxD) * 256;
+            r = 256 - (d / maxD) * 256;
+
             set(x, y, color(r, g, b));
-            updatePixels();
         }
+    updatePixels();
 }
