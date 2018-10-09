@@ -12,17 +12,21 @@ function draw() {
             //trawa
             if (y >= height - height / 3)
                 set(x, y, color(0, 100, 0));
+            //fasada
             if ((x > width / 4) &&
                 (x < width - width / 4) &&
                 (y > height / 3) &&
-                (y < height - height / 3)){
-                    set(x, y, color(100,50,30));
-                }
-                    
+                (y < height - height / 3)) {
+                set(x, y, color(100, 50, 30));
+            }
+
         }
+    for (x = width / 8, y = height / 3; y > 20; x += 2, y--) {
+        set(x, y, color(255, 100, 100));
+    }
     //kwiaty
     for (var count = 0; count < 1000; count++)
-        set(random(0, x), random(height - height / 3, 800), color(random(0, 255), random(0, 255), random(0, 255)));
+        set(random(0, width), random(height - height / 3, 800), color(random(0, 255), random(0, 255), random(0, 255)));
 
     updatePixels();
 }
