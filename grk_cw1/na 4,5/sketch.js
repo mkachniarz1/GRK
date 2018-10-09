@@ -21,8 +21,13 @@ function draw() {
             }
 
         }
-    for (x = width / 8, y = height / 3; y > 20; x += 2, y--) {
-        set(x, y, color(255, 100, 100));
+    for (var y = 50, w = 0; y < 200; y++ , w += 2) {
+        for (var i = y; i <= height / 3; i++) {
+            set(width / 2 + w, i, color(255, 100, 100));
+            set(width / 2 + w + 1, i, color(255, 100, 100));
+            set(width / 2 - w, i, color(255, 100, 100));
+            set(width / 2 - w + 1, i, color(255, 100, 100));
+        }
     }
     //kwiaty
     for (var count = 0; count < 1000; count++)
