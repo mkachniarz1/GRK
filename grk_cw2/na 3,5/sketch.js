@@ -17,7 +17,7 @@ function draw() {
     img_s.loadPixels();
     img_v.loadPixels();
 
-
+ś
 
     d = pixelDensity();
     for (x = 0; x < img.width; x++)
