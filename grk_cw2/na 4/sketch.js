@@ -17,7 +17,7 @@ function draw() {
     img_s.loadPixels();
     img_v.loadPixels();
 
-    
+
 
     d = pixelDensity();
     for (x = 0; x < img.width; x++)
@@ -30,11 +30,15 @@ function draw() {
                     b = img.pixels[pos + 2] / 255;
                     cmax = Math.max(r, g, b);
                     cmin = Math.min(r, g, b);
+                    c = cmax-cmin;
                     l = (cmax + cmin) / 2;
                     v = cmax;
+                    s = cmax == 0 ? 0 : c / cmax;
 
                     img_v.set(x, y, 255 * v);
                     img_h.set(x, y, 255 * l);
+                    img_s.set(x, y, 255 * s);
+
                 }
     img_h.updatePixels();
     img_s.updatePixels();
