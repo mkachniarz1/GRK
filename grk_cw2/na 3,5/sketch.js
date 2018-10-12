@@ -25,6 +25,7 @@ function draw() {
             for (dx = 0; dx < d; dx++)
                 for (dy = 0; dy < d; dy++) {
                     pos = 4 * ((y * d + dy) * img.width * d + (x * d + dx));
+                    pos=4*(y*img.width+x);
                     r = img.pixels[pos] / 255;
                     g = img.pixels[pos + 1] / 255;
                     b = img.pixels[pos + 2] / 255;
