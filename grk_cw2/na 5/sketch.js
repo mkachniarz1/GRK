@@ -1,6 +1,6 @@
 function preload() {
     img = loadImage("https://raw.githubusercontent.com/scikit-image/scikit-image/master/skimage/data/astronaut.png");
-    img.filter('gray')
+
 }
 
 function setup() {
@@ -9,24 +9,22 @@ function setup() {
 
 function draw() {
     noLoop();
-        var histogram = new Array(256);
+    img.filter('gray')
+
+    img.resize(256, 256);
+    var histogram = new Array(256);
     histogram.fill(0);
 
     img.loadPixels();
-    for (x = 0; x < img.width; x++)
-        for (y = 0; y < img.height; y++) {
-            pos = 4 * (y * img.width + x);
-            histogram[img.pixels[pos]] += 1;
 
-        }
-
-    console.log(histogram);
-
-
-    stroke(0);
-    for (var i = 0; i < histogram.lenght; i++) {
-        l = histogram[i]/histogram.lenght*height;
-        line(i, 255, i,  l);
+    for (x = 0; x < img.width * img.height; x++) {
+        pos = 4 * x;
+        histogram[img.pixels[pos] - 1] += 1;
     }
 
+    stroke(0);
+    for (var i = 0; i < 256; i++) {
+        l = (histogram[i] / Math.max(...histogram)) * height;
+        line(i, 255, i, 256 - l);
+    }
 }
