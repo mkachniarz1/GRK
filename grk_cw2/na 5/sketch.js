@@ -4,7 +4,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(256, 256);
+    createCanvas(256, 512);
 }
 
 function draw() {
@@ -24,7 +24,8 @@ function draw() {
 
     stroke(0);
     for (var i = 0; i < 256; i++) {
-        l = (histogram[i] / Math.max(...histogram)) * height;
+        l = (histogram[i] / Math.max(...histogram)) * height/2;
         line(i, 255, i, 256 - l);
     }
+    image(img, 0, 256);
 }
