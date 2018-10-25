@@ -1,23 +1,11 @@
 function setup() {
-<<<<<<< HEAD
-    createCanvas(512, 521);
-    background(255);
-}
-
-var x0 = -1;
-var y0 = -1;
-var x1 = -1;
-var y1 = -1;
-=======
     createCanvas(512, 512);
     background(255);
     var x0 = -1;
     var y0 = -1;
     var x1 = -1;
     var y1 = -1;
-
 }
->>>>>>> 3496a7a8aa45210b7b14e89673846ebeaada0585
 
 function mousePressed() {
     x0 = mouseX;
@@ -40,9 +28,6 @@ function mouseReleased() {
     loadPixels();
     draw_line();
     updatePixels();
-<<<<<<< HEAD
-  }
-=======
 }
 
 function set_pixel(x, y, c) {
@@ -56,14 +41,21 @@ function set_pixel(x, y, c) {
 function draw_line() {
     var dx = x1 - x0;
     var dy = y1 - y0;
-    var a = dy / dx;
-    var b = y0 - a * x0;
+    var dp = 2 * dy - dx;
+    var deq = 2 * dy;
+    var dinc = 2 * dy - 2 * dx;
 
-    var x = x0 < x1 ? x0 : x1;
-    var x2 = x;
+    var d = dp;
 
-    for (x; x < Math.abs(x0 - x1) + x2; x++) {
-        set_pixel(Math.floor(x), Math.floor((a * x) + b), 0);
+
+    for (x0; x0 < x1; x0++) {
+        set_pixel(x0, y0, 0);
+        if (d < 0) {
+            d += deq;
+        } else {
+            d += dinc;
+            y0++;
+        }
+
     }
 }
->>>>>>> 3496a7a8aa45210b7b14e89673846ebeaada0585
