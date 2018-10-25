@@ -46,16 +46,15 @@ function draw_line() {
     var dinc = 2 * dy - 2 * dx;
 
     var d = dp;
-    var y = y0 < y1 ? y0 : y1;
-    var x = x0 < x1 ? x0 : x1;
 
-    for (x; x < Math.abs(x0 - x1); x++) {
-        set_pixel(x, y, 0);
+
+    for (x0; x0 < x1; x0++) {
+        set_pixel(x0, y0, 0);
         if (d < 0) {
             d += deq;
         } else {
             d += dinc;
-            y++;
+            y0++;
         }
 
     }
