@@ -43,6 +43,7 @@ function drawVector(img, vec) {
 function mouseDragged() {
     var vector = makeVector(mouseX, mouseY);
     drawVector(imgA, vector);
+    var 
 }
 
 function makeIdentity() {
@@ -66,8 +67,11 @@ function makeShear(shx, shy) {
     return [[1, shx, 0], [shy, 1, 0], [0, 0, 1]];
 }
 
-console.log(makeIdentity());
-console.log(makeTranslate(5, 7));
-console.log(makeScale(5, 7));
-console.log(makeRotation(30));
-console.log(makeShear(3,8));
+function matVec(mat, vec) {
+    var r0 = mat[0][0] * vec[0] + mat[0][1] * vec[1] + mat[0][2] * vec[2];
+    var r1 = mat[1][0] * vec[0] + mat[1][1] * vec[1] + mat[1][2] * vec[2];
+    var r2 = mat[2][0] * vec[0] + mat[2][1] * vec[1] + mat[2][2] * vec[2];
+    return [r0, r1, r2];
+}
+
+
