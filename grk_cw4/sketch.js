@@ -43,7 +43,9 @@ function drawVector(img, vec) {
 function mouseDragged() {
     var vector = makeVector(mouseX, mouseY);
     drawVector(imgA, vector);
-    var 
+    //drawVector(imgB, matVec(makeTranslate(10, 20), vector));
+    drawVector(imgB, matVec(makeRotation(90), vector));
+    //drawVector(imgB, matVec(makeScale(3, 3), vector));
 }
 
 function makeIdentity() {
