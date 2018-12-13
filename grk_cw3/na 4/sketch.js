@@ -39,23 +39,35 @@ function set_pixel(x, y, c) {
 }
 
 function draw_line() {
-    var dx = x1 - x0;
-    var dy = y1 - y0;
-    var dp = 2 * dy - dx;
-    var deq = 2 * dy;
-    var dinc = 2 * dy - 2 * dx;
+var dx = x1 - x0;
+var dy = y1 - y0;
+var dp = 2 * dy - dx;
+var deq = 2 * dy;
+var dinc = 2 * dy - 2 * dx;
 
-    var d = dp;
-
-
+var d = dp;
+    console.log("line");
     for (x0; x0 < x1; x0++) {
         set_pixel(x0, y0, 0);
         if (d < 0) {
             d += deq;
+
         } else {
             d += dinc;
             y0++;
         }
-
     }
 }
+
+
+
+//for (x0; x0 < x1; x0++) {
+//    set_pixel(x0, y0, 0);
+//    if (d < 0) {
+//        d += deq;
+//    } else {
+//        d += dinc;
+//        y0++;
+//    }
+
+//}
