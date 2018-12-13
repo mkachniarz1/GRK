@@ -29,7 +29,7 @@ function draw() {
         image(imgB, 0, 0);
         text('Image B', 10, 20);
     }
-} 
+}
 
 function makeVector(x, y) {
     return [x, y, 1];
@@ -44,3 +44,30 @@ function mouseDragged() {
     var vector = makeVector(mouseX, mouseY);
     drawVector(imgA, vector);
 }
+
+function makeIdentity() {
+    return [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
+}
+
+function makeTranslate(tx, ty) {
+    return [[1, 0, tx], [0, 1, ty], [0, 0, 1]];
+}
+
+function makeScale(sx, sy) {
+    return [[sx, 0, 0], [0, sy, 0], [0, 0, 1]];
+}
+
+function makeRotation(angleInDeg) {
+    angleInDeg = (angleInDeg / 180) * Math.PI;
+    return [[Math.cos(angleInDeg), -Math.sin(angleInDeg), 0], [Math.sin(angleInDeg), Math.cos(angleInDeg), 0], [0, 0, 1]];
+}
+
+function makeShear(shx, shy) {
+    return [[1, shx, 0], [shy, 1, 0], [0, 0, 1]];
+}
+
+console.log(makeIdentity());
+console.log(makeTranslate(5, 7));
+console.log(makeScale(5, 7));
+console.log(makeRotation(30));
+console.log(makeShear(3,8));
